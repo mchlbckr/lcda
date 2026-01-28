@@ -3,3 +3,4 @@
 ^\.gitignore$
 ^_pkgdown\.yml$
 ^docs$
+^diplomarbeit\.pdf$

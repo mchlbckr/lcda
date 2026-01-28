@@ -22,6 +22,61 @@ categorical predictors. The main functions are:
 
 All manifest variables and class labels must be integer-coded and start at 1.
 
+## Background
+
+The methods in `lcda` implement local discrimination for discrete variables using
+latent class analysis (LCA). The key idea is to replace a single class-conditional
+distribution with a finite mixture of locally independent components. This lets
+each class capture heterogeneity while keeping the model tractable for categorical
+data.
+
+Let `K` be the number of classes, `M` the number of latent components, `D` the
+number of manifest variables, and `R_d` the number of outcomes for variable `d`.
+The indicator `x_dr` equals 1 if variable `d` takes outcome `r` and 0 otherwise.
+
+## Models
+
+### LCDA (class-specific mixtures)
+
+Each class has its own latent class model:
+
+$$
+f_k(x) = \sum_{m=1}^{M_k} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d} \theta_{mkdr}^{x_{dr}}
+$$
+
+Classification follows the Bayes decision rule:
+
+$$
+\hat{k}(x) = \arg\max_k \pi_k f_k(x)
+$$
+
+### CCLCDA (common components)
+
+Common-components models share the component distributions across classes, while
+allowing class-specific mixing weights:
+
+$$
+f_k(x) = \sum_{m=1}^{M} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d} \theta_{mdr}^{x_{dr}}
+$$
+
+`cclcda()` first estimates the shared LCA on the pooled data and then derives
+class-conditional weights. `cclcda2()` estimates weights and response
+probabilities jointly in each EM step.
+
+## Estimation and model selection
+
+Parameter estimation uses the EM algorithm with random starts (see `nrep`). Model
+selection can be guided by AIC, BIC, the likelihood ratio statistic (Gsq), and the
+Pearson chi-square statistic (Chisq). For common-components models, additional
+quality measures are provided:
+
+- Weighted entropy, measuring the purity of latent components.
+- Weighted Gini, an alternative impurity measure.
+- A chi-square test of independence between latent components and classes.
+
+These are reported in the fitted model objects returned by `cclcda()` and
+`cclcda2()`.
+
 ## Example: CCL-CDA2 on Iris
 
 ```{r}
@@ -46,10 +101,13 @@ model <- cclcda2(
 model$bic
 ```
 
-## Reference
+## References
 
-Bucker, M., Szepannek, G., Weihs, C. (2010). Local Classification of Discrete
+Bücker, M., Szepannek, G., Weihs, C. (2010). Local Classification of Discrete
 Variables by Latent Class Models. In: Locarek-Junge, H., Weihs, C. (eds)
 Classification as a Tool for Research. Studies in Classification, Data Analysis,
 and Knowledge Organization. Springer, Berlin, Heidelberg.
 https://doi.org/10.1007/978-3-642-10745-0_13
+
+Bücker, M. (2008). Lokale Diskrimination diskreter Daten. Diplomarbeit,
+Fakultaet Statistik, TU Dortmund.

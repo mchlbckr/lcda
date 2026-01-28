@@ -47,4 +47,7 @@ vignette("lcda")
 
 ## Reference
 
-Bucker, M., Szepannek, G., Weihs, C. (2010). Local Classification of Discrete Variables by Latent Class Models. In: Locarek-Junge, H., Weihs, C. (eds) Classification as a Tool for Research. Studies in Classification, Data Analysis, and Knowledge Organization. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-10745-0_13
+Bücker, M., Szepannek, G., Weihs, C. (2010). Local Classification of Discrete Variables by Latent Class Models. In: Locarek-Junge, H., Weihs, C. (eds) Classification as a Tool for Research. Studies in Classification, Data Analysis, and Knowledge Organization. Springer, Berlin, Heidelberg. https://doi.org/10.1007/978-3-642-10745-0_13
+
+Bücker, M. (2008). Lokale Diskrimination diskreter Daten. Diplomarbeit,
+Fakultaet Statistik, TU Dortmund.
