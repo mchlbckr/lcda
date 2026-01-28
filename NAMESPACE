@@ -1,0 +1,22 @@
+import("poLCA")
+
+export(lcda)
+export(cclcda)
+export(cclcda2)
+
+S3method(lcda, default)
+S3method(lcda, formula)
+S3method(predict, lcda)
+S3method(print, lcda)
+
+S3method(cclcda, default)
+S3method(cclcda, formula)
+S3method(predict, cclcda)
+S3method(print, cclcda)
+
+S3method(cclcda2, default)
+S3method(cclcda2, formula)
+S3method(predict, cclcda2)
+S3method(print, cclcda2)
+
+importFrom("stats", "as.formula", "chisq.test", "model.frame", "runif")
