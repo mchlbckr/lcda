@@ -22,6 +22,8 @@ jobs:
           needs: website
       - name: Build pkgdown site
         run: Rscript -e 'pkgdown::build_site()'
-      - uses: r-lib/actions/deploy-pkgdown@v1
+      - name: Deploy pkgdown site
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: docs
