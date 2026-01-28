@@ -1,0 +1,55 @@
+---
+title: "Latent Class Discriminant Analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Latent Class Discriminant Analysis}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+```
+
+## Overview
+
+The `lcda` package provides latent class discriminant analysis methods for
+categorical predictors. The main functions are:
+
+- `lcda()` for class-specific latent class models.
+- `cclcda()` for common-components latent class models.
+- `cclcda2()` for common-components models with class-conditional mixing weights.
+
+All manifest variables and class labels must be integer-coded and start at 1.
+
+## Example: CCL-CDA2 on Iris
+
+```{r}
+library(lcda)
+
+data(iris)
+
+iris_cat <- within(iris, {
+  Sepal.Length <- as.integer(cut(Sepal.Length, breaks = c(-Inf, 5.1, 5.8, 6.4, Inf)))
+  Sepal.Width <- as.integer(cut(Sepal.Width, breaks = c(-Inf, 2.8, 3.0, 3.3, Inf)))
+  Petal.Length <- as.integer(cut(Petal.Length, breaks = c(-Inf, 1.6, 4.35, 5.1, Inf)))
+  Petal.Width <- as.integer(cut(Petal.Width, breaks = c(-Inf, 0.3, 1.3, 1.8, Inf)))
+  Species3 <- as.integer(Species)
+})
+
+model <- cclcda2(
+  Species3 ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width,
+  data = iris_cat,
+  m = 1
+)
+
+model$bic
+```
+
+## Reference
+
+Bucker, M., Szepannek, G., Weihs, C. (2010). Local Classification of Discrete
+Variables by Latent Class Models. In: Locarek-Junge, H., Weihs, C. (eds)
+Classification as a Tool for Research. Studies in Classification, Data Analysis,
+and Knowledge Organization. Springer, Berlin, Heidelberg.
+https://doi.org/10.1007/978-3-642-10745-0_13
