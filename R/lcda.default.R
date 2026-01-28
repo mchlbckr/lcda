@@ -33,6 +33,9 @@ lcda.default <- function(
     data <- data[,-1]
   }
 
+  validate_manifest_data(data)
+  validate_grouping(grouping)
+
   k <- max(grouping, na.rm=TRUE) # number of groups 
   d <- ncol(data)                # number of variables 
   n <- length(grouping)          # number of observations
@@ -148,4 +151,3 @@ print.lcda <- function(x, ...)
     cat(paste(cl[i], round(x$Chisq[i], 2), sep=": "), "\n")
     invisible(x)
 }
-

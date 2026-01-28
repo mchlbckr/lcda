@@ -31,9 +31,12 @@ cclcda2.default <- function(       x,                   # dataframe containing t
 
   # if `grouping' vector not given, first data column is taken. 
   if (is.null(grouping)) {
-    grouping <- data[,1]
-    data <- data[,-1]
+    grouping <- x[,1]
+    x <- x[,-1]
   }
+
+  validate_manifest_data(x)
+  validate_grouping(grouping)
 
   varnames <- colnames(x)
   k <- max(grouping, na.rm=TRUE) # number of groups 
@@ -282,8 +285,6 @@ print.cclcda2 <- function(x, ...)
     cat("\nChisq p-value: ", round(x$chi.p,4), "\n")
     invisible(x)
 } 
-
-
 
 
 
