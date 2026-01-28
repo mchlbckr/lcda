@@ -17,7 +17,7 @@ lcda(x, ...)
 \method{lcda}{formula}(formula, data, ...)
 }
 \arguments{
-\item{x}{Matrix or data frame containing the explanatory variables. Manifest variables must contain only integer values, and must be coded with consecutive values from 1 to the maximum number of outcomes for each variable. All missing values should be entered as NA.}
+\item{x}{Matrix or data frame containing the explanatory variables. Manifest variables must contain only integer values, and must be coded with integers starting at 1. All missing values should be entered as NA.}
 \item{grouping}{A factor specifying the class for each observation; if not specified, the first column of \code{data} is taken. The class must be coded by integer values with consecutive values from 1 to the maximum number of classes.}
 \item{formula}{Formula of the form \code{'groups ~ x1 + x2 + ...'}.}
 \item{data}{Data frame from which variables specified in formula are to be taken.}

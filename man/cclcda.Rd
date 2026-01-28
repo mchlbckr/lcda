@@ -17,7 +17,7 @@ cclcda(x, ...)
 \method{cclcda}{formula}(formula, data, ...)
 }
 \arguments{
-\item{x}{Matrix or data frame containing the explanatory variables. Manifest variables must contain only integer values, and must be coded with consecutive values from 1 to the maximum number of outcomes for each variable. All missing values should be entered as NA.}
+\item{x}{Matrix or data frame containing the explanatory variables. Manifest variables must contain only integer values, and must be coded with integers starting at 1. All missing values should be entered as NA.}
 \item{grouping}{A factor specifying the class for each observation; if not specified, the first column of 'data' is taken. The class must be coded by integer values with consecutive values from 1 to the maximum number of classes.}
 \item{formula}{Formula of the form \code{'groups ~ x1 + x2 + ...'}.}
 \item{data}{Data frame from which variables specified in formula are to be taken.}
@@ -103,7 +103,7 @@ wkm <- apply(wmk*prior, 2, function(x) x/sum(x))
 data_temp <- poLCA.simdata(N = 1000, probs = probs1,
                            nclass = 2, ndv = 4, nresp = 4,
                            P=rep(0.25,4))
-data <- data_temp$dat
+ data <- data_temp$dat + 1
 lclass <- data_temp$trueclass
 grouping <- numeric()
 for (i in 1:length(lclass))
@@ -115,7 +115,7 @@ grouping[i] <- sample(c(1,2),1, prob=wkm[,lclass[i]])
 data_temp <- poLCA.simdata(N = 500, probs = probs1,
                            nclass = 2, ndv = 4, nresp = 4,
                            P=rep(0.25,4))
-data.test <- data_temp$dat
+ data.test <- data_temp$dat + 1
 lclass <- data_temp$trueclass
 grouping.test <- numeric()
 for (i in 1:length(lclass))

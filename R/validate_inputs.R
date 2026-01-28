@@ -13,12 +13,7 @@ validate_manifest_data <- function(data)
     }
 
     if (min(values) < 1) {
-      stop("Manifest variables must be coded with consecutive integers starting at 1.", call.=FALSE)
-    }
-
-    max_val <- max(values)
-    if (!identical(sort(unique(values)), seq_len(max_val))) {
-      stop("Manifest variables must be coded with consecutive integers starting at 1.", call.=FALSE)
+      stop("Manifest variables must be coded with integers starting at 1.", call.=FALSE)
     }
   }
 }
@@ -39,7 +34,8 @@ validate_grouping <- function(grouping)
     stop("Grouping must be coded with consecutive integers starting at 1.", call.=FALSE)
   }
 
-  if (!identical(sort(unique(values)), seq_len(max(values)))) {
+  max_val <- max(values)
+  if (!all(sort(unique(values)) == seq_len(max_val))) {
     stop("Grouping must be coded with consecutive integers starting at 1.", call.=FALSE)
   }
 }
