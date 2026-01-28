@@ -4,3 +4,4 @@
 
 * Update includes input validation, CI/test tooling, documentation updates, and a vignette.
 * Added Authors@R field per CRAN incoming check note.
+* Removed redundant Author/Maintainer fields to match Authors@R.

@@ -10,14 +10,13 @@ Suggests: testthat (>= 3.0.0),
     rmarkdown
 Config/testthat/edition: 3
 VignetteBuilder: knitr
-Author: Michael Buecker
-Maintainer: Michael Buecker <michael.buecker@fh-muenster.de>
 Authors@R: person(given = "Michael",
-    family = "Buecker",
+    family = "Bücker",
     role = c("aut", "cre"),
     email = "michael.buecker@fh-muenster.de")
 Description: Providing a method for Local Discrimination via Latent Class Models. The approach is described in <https://www.r-project.org/conferences/useR-2009/abstracts/pdf/Bucker.pdf>.
 License: GPL
+Encoding: UTF-8
 Packaged: 2026-01-28; buecker
 Repository: CRAN
 Date/Publication: 2026-01-28
