@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Michael Buecker**. Maintainer.
+- **Michael Buecker**. Author, maintainer.
 
 ## Citation
 
