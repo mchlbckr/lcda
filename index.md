@@ -3,9 +3,9 @@
 [![CRAN
 status](https://www.r-pkg.org/badges/version/lcda)](https://CRAN.R-project.org/package=lcda)
 [![CRAN
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/lcda)](https://cranlogs.r-pkg.org/downloads/total/lcda)
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/lcda)](https://cranlogs.r-pkg.org/downloads/total/last-month/lcda)
 [![R-CMD-check](https://github.com/mchlbckr/lcda/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mchlbckr/lcda/actions/workflows/R-CMD-check.yaml)
-[![pkgdown](https://github.com/mchlbckr/lcda/actions/workflows/pkgdown.yaml/badge.svg)](https://mchlbckr.github.io/lcda/)
+[![pkgdown](https://github.com/mchlbckr/lcda/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/mchlbckr/lcda/actions/workflows/pkgdown.yaml)
 
 Latent class discriminant analysis for categorical data, including local
 and common-components variants.
