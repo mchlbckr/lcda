@@ -20,7 +20,8 @@ jobs:
         with:
           extra-packages: any::pkgdown, local::.
           needs: website
-      - uses: r-lib/actions/build-pkgdown@v2
+      - name: Build pkgdown site
+        run: Rscript -e 'pkgdown::build_site()'
       - uses: r-lib/actions/deploy-pkgdown@v2
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
