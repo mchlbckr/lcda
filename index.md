@@ -1,4 +1,4 @@
-# lcda
+# lcda ![lcda hex sticker](hexagon.png)
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/lcda)](https://CRAN.R-project.org/package=lcda)
