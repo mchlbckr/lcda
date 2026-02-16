@@ -22,6 +22,8 @@ jobs:
           needs: website
       - name: Build pkgdown site
         run: Rscript -e 'pkgdown::build_site()'
+      - name: Copy hex sticker to site root
+        run: cp hexagon.png docs/hexagon.png
       - name: Deploy pkgdown site
         uses: peaceiris/actions-gh-pages@v4
         with:

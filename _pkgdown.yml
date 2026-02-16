@@ -1,3 +1,4 @@
 url: https://mchlbckr.github.io/lcda
 template:
   bootstrap: 5
+  math-rendering: mathjax
