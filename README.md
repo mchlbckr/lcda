@@ -1,4 +1,4 @@
-# lcda <img src="hexagon.png" align="right" width="120" alt="lcda hex sticker" />
+# lcda <img src="https://raw.githubusercontent.com/mchlbckr/lcda/main/hexagon.png" align="right" width="120" alt="lcda hex sticker" />
 
 [![CRAN status](https://www.r-pkg.org/badges/version/lcda)](https://CRAN.R-project.org/package=lcda)
 [![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/lcda)](https://cranlogs.r-pkg.org/downloads/total/last-month/lcda)
