@@ -34,18 +34,20 @@ outcome `r` and 0 otherwise.
 
 Each class has its own latent class model:
 
-$$f_{k}(x) = \sum\limits_{m = 1}^{M_{k}}w_{mk}\prod\limits_{d = 1}^{D}\prod\limits_{r = 1}^{R_{d}}\theta_{mkdr}^{x_{dr}}$$
+\\ f_k(x) = \sum\_{m=1}^{M_k} w\_{mk} \prod\_{d=1}^D \prod\_{r=1}^{R_d}
+\theta\_{mkdr}^{x\_{dr}} \\
 
 Classification follows the Bayes decision rule:
 
-$$\widehat{k}(x) = \arg\max\limits_{k}\pi_{k}f_{k}(x)$$
+\\ \hat{k}(x) = \arg\max_k \pi_k f_k(x) \\
 
 ### CCLCDA (common components)
 
 Common-components models share the component distributions across
 classes, while allowing class-specific mixing weights:
 
-$$f_{k}(x) = \sum\limits_{m = 1}^{M}w_{mk}\prod\limits_{d = 1}^{D}\prod\limits_{r = 1}^{R_{d}}\theta_{mdr}^{x_{dr}}$$
+\\ f_k(x) = \sum\_{m=1}^{M} w\_{mk} \prod\_{d=1}^D \prod\_{r=1}^{R_d}
+\theta\_{mdr}^{x\_{dr}} \\
 
 [`cclcda()`](https://mchlbckr.github.io/lcda/reference/cclcda.md) first
 estimates the shared LCA on the pooled data and then derives

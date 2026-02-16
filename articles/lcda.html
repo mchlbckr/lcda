@@ -6,7 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Latent Class Discriminant Analysis • lcda</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- mathjax math --><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script><script>
+  window.MathJax = {
+    chtml: {
+      fontURL: "https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/output/chtml/fonts/woff-v2"
+    }
+  };
+</script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
@@ -98,22 +104,24 @@ variables, and <code>R_d</code> the number of outcomes for variable
 <h3 id="lcda-class-specific-mixtures">LCDA (class-specific mixtures)<a class="anchor" aria-label="anchor" href="#lcda-class-specific-mixtures"></a>
 </h3>
 <p>Each class has its own latent class model:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>M</mi><mi>k</mi></msub></munderover><msub><mi>w</mi><mrow><mi>m</mi><mi>k</mi></mrow></msub><munderover><mo>∏</mo><mrow><mi>d</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><munderover><mo>∏</mo><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>R</mi><mi>d</mi></msub></munderover><msubsup><mi>θ</mi><mrow><mi>m</mi><mi>k</mi><mi>d</mi><mi>r</mi></mrow><msub><mi>x</mi><mrow><mi>d</mi><mi>r</mi></mrow></msub></msubsup></mrow><annotation encoding="application/x-tex">
-f_k(x) = \sum_{m=1}^{M_k} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d} \theta_{mkdr}^{x_{dr}}
-</annotation></semantics></math></p>
+<p><span class="math display">\[
+f_k(x) = \sum_{m=1}^{M_k} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d}
+\theta_{mkdr}^{x_{dr}}
+\]</span></p>
 <p>Classification follows the Bayes decision rule:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover><mi>k</mi><mo accent="true">̂</mo></mover><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><mo>arg</mo><munder><mo>max</mo><mi>k</mi></munder><msub><mi>π</mi><mi>k</mi></msub><msub><mi>f</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow></mrow><annotation encoding="application/x-tex">
+<p><span class="math display">\[
 \hat{k}(x) = \arg\max_k \pi_k f_k(x)
-</annotation></semantics></math></p>
+\]</span></p>
 </div>
 <div class="section level3">
 <h3 id="cclcda-common-components">CCLCDA (common components)<a class="anchor" aria-label="anchor" href="#cclcda-common-components"></a>
 </h3>
 <p>Common-components models share the component distributions across
 classes, while allowing class-specific mixing weights:</p>
-<p><math display="block" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>f</mi><mi>k</mi></msub><mrow><mo stretchy="true" form="prefix">(</mo><mi>x</mi><mo stretchy="true" form="postfix">)</mo></mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>m</mi><mo>=</mo><mn>1</mn></mrow><mi>M</mi></munderover><msub><mi>w</mi><mrow><mi>m</mi><mi>k</mi></mrow></msub><munderover><mo>∏</mo><mrow><mi>d</mi><mo>=</mo><mn>1</mn></mrow><mi>D</mi></munderover><munderover><mo>∏</mo><mrow><mi>r</mi><mo>=</mo><mn>1</mn></mrow><msub><mi>R</mi><mi>d</mi></msub></munderover><msubsup><mi>θ</mi><mrow><mi>m</mi><mi>d</mi><mi>r</mi></mrow><msub><mi>x</mi><mrow><mi>d</mi><mi>r</mi></mrow></msub></msubsup></mrow><annotation encoding="application/x-tex">
-f_k(x) = \sum_{m=1}^{M} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d} \theta_{mdr}^{x_{dr}}
-</annotation></semantics></math></p>
+<p><span class="math display">\[
+f_k(x) = \sum_{m=1}^{M} w_{mk} \prod_{d=1}^D \prod_{r=1}^{R_d}
+\theta_{mdr}^{x_{dr}}
+\]</span></p>
 <p><code><a href="../reference/cclcda.html">cclcda()</a></code> first estimates the shared LCA on the pooled
 data and then derives class-conditional weights. <code><a href="../reference/cclcda2.html">cclcda2()</a></code>
 estimates weights and response probabilities jointly in each EM
